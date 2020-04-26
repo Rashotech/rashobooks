@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Rashobooks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Bold-BS4-Jumbotron-with-Particles-js-1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Bold-BS4-Jumbotron-with-Particles-js.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dark-footer-with-social-media-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Simple-Header-y-Navbar-adaptativo-1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Simple-Header-y-Navbar-adaptativo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body style="margin: 0px;padding: 0px;"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>RAshoBOOKS</h1>
+  </header>
+  <nav>
+    <ul>
+      <a href="/"><li><i class="fa fa-home"></i> Home</li></a>
+      <a href="/sign-up"><li><i class="fa fa-info"></i> Sign Up</li></a>
+      <a href="/login"><li><i class="fa fa-inbox"></i> Login</li></a>
+    </ul>
+    <div class="handle">
+      Menu
+    </div>
+  </nav>
+
+  <script>
+    $('.handle').on('click', function(){
+      $('nav ul').toggleClass('showing');
+    });
+  </script>
+</body>
+</html>
+    <div>
+        <div class="jumbotron jumbotron-fluid jumbotron-main"><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+<script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    <div id="particles-js">
+	<canvas class="particles-js-canvas-el" width="1409" height="259" style="width: 100%; height: 100%;"></canvas>
+	</div>
+            <div class="container center-vertically-holder" style="margin-top:-20px;">
+                <div class="row center-vertically">
+                    <div class="col-md-8 offset-sm-0 offset-md-2 text-center" style="margin-top: 100px;margin-bottom: 100px;">
+                        <h1>Deciding what to read next?<br><br></h1>
+                        <hr style="border-top:1px;color:rgba(255,255,255,0.9);width:60%;margin:0px;margin-top:-50px;margin-bottom:10px;margin-left:20%;">
+                        <p>You’re in the right place. This is the largest book directory on the internet where you can&nbsp;explore lots of Books. Tell us what titles or genres you’ve enjoyed&nbsp;in the past, and we’ll give you surprisingly insightful recommendations.<br></p>
+                        <p><a class="btn btn-primary" role="button" href="#">Sign Up Now!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footerpad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a href="#"><a href="http://fb.com/ayoaderasheed"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></a></li>
+                        <li class="list-inline-item"><a href="#"><a href="http://twitter.com/RA_UniqueGUY"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></a></li>
+                        <li class="list-inline-item"><a href="#"><a href="http://instagram.com/rauniqueguy"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a href="#"><a href="http://instagram.com/rauniqueguy"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x fa-inverse"></i></span></a></a></li>
+                    </ul><p class="copyright text-muted text-center">Copyright &copy; RAshotech Inc. | Web Design by Ayoade Rasheed</p></div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/Bold-BS4-Jumbotron-with-Particles-js.js') }}"></script>
+</body>
+</html>
