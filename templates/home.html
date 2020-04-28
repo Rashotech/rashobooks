@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} Search for Books {% endblock %}
+
+{% block heading %} 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        Search for Books 
+{% endblock %}
+
+{% block content%}
+<body class="loggedin">
+    <nav class="navtop">
+        <div>
+            <h1>Rashobooks</h1>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+            <a href="{{ url_for('home') }}"><i class="fas fa-user-circle"></i>Profile</a>
+            <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+    </nav>
+    <div class="content">
+        <h2>Search, Get information and Review Your Favourite Books Below</h2>
+        <p>Welcome back, {{ username }}!</p>
+    </div>
+</body>
+{% endblock %}
