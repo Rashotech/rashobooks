@@ -19,7 +19,7 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    return render_template("index1.html")
+    return render_template("index.html")
 
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
@@ -87,7 +87,7 @@ def signup():
     # Show registration form with message (if any)
     return render_template('signup.html', msg=msg)
 
-@app.route('/home')
+@app.route('/home', methods=["GET"])
 def home():
     # Check if user is loggedin
     if 'loggedin' in session:
@@ -95,3 +95,33 @@ def home():
         return render_template('home.html', username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
+
+@app.route("/search", methods=["GET"])
+def search():
+    """ Get books results """
+
+    # Check book id was provided
+    if not request.args.get("book"):
+        return render_template("error.html", message="you must provide a book.")
+
+    # Take input and add a wildcard
+    query = "%" + request.args.get("book") + "%"
+
+    # Capitalize all words of input for search
+    # https://docs.python.org/3.7/library/stdtypes.html?highlight=title#str.title
+    query = query.title()
+    
+    rows = db.execute("SELECT isbn, title, author, year FROM books WHERE \
+                        isbn LIKE :query OR \
+                        title LIKE :query OR \
+                        author LIKE :query LIMIT 15",
+                        {"query": query})
+    
+    # Books not founded
+    if rows.rowcount == 0:
+        return render_template("error.html", message="we can't find books with that description.")
+    
+    # Fetch all the results
+    books = rows.fetchall()
+
+    return render_template("results.html", books=books)

@@ -7,9 +7,13 @@
 }
 
 body {
-  	background-color: #435165;
+  	background-color: #e4e5e72a;
   	margin: 0;
 }
+
+#sticky-footer {
+	flex-shrink: none;
+  }
 .login, .register {
   	width: 400px;
   	background-color: #ffffff;

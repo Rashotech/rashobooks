@@ -1,26 +1,87 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html style="height: 250;">
 
-{% block title %} Search for Books {% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Search for books - Rashobooks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dark-footer-with-social-media-icons.css') }}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
-{% block heading %} 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        Search for Books 
-{% endblock %}
-
-{% block content%}
-<body class="loggedin">
-    <nav class="navtop">
-        <div>
-            <h1>Rashobooks</h1>
-            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
-            <a href="{{ url_for('home') }}"><i class="fas fa-user-circle"></i>Profile</a>
-            <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="#">Rashobooks</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('home') }}">Profile</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('logout') }}">Log-Out</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class="content">
-        <h2>Search, Get information and Review Your Favourite Books Below</h2>
-        <p>Welcome back, {{ username }}!</p>
-    </div>
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro" style="height: 178px;">
+            <div class="container">
+                <div class="about-me">
+                    <p class="text-center" style="height: 103px;">Welcome back {{ username }}<br>Search for a book by its ISBN, Title Name, and Author Name Below<br><br></p>
+                </div>
+            </div>
+        </section>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+                <div class="container">
+                <br/>
+	                <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form action="{{ url_for('search') }}" class="card card-sm" method="GET">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" name="book" type="search" placeholder="Search for Books with ISBN, Title or Author">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </div>
+    </main>
+    <div class="fixed-bottom">
+    <footer class="page-footer font-small special-color-dark pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-8 mx-auto">
+                    <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item"><a class="btn-floating btn-fb mx-1" href="http://fb.com/ayoaderasheed"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-tw mx-1" href="http://twitter.com/RA_UniqueGUY"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-ins mx-1" href="http://instagram.com/rauniqueguy"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-li mx-1" href="http://instagram.com/rauniqueguy"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul><p class="copyright text-muted text-center">Copyright &copy; RAshotech Inc. | Web Design by Ayoade Rasheed</p></div>
+            </div>
+        </div>
+    </footer>
+</div>
+    <script src="{{ url_for('static', filename='home/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='home/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="{{ url_for('static', filename='home/js/theme.js') }}"></script>
+    
 </body>
-{% endblock %}
+
+</html>
