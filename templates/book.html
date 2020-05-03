@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="row book-container">
         <div class="col-sm-4">
-            <img src="http://covers.openlibrary.org/b/isbn/{{bookInfo[0]['isbn']}}-M.jpg" width="130px">    
+            <center><img src="http://covers.openlibrary.org/b/isbn/{{bookInfo[0]['isbn']}}-M.jpg" width="130px"></center>
         </div>
         <div class="col-sm-4">
+            <center>
             <h1>{{bookInfo[0]['title']}}</h1>
             <h5>Author: {{bookInfo[0]['author']}}</h5>
             <h5>Published: {{bookInfo[0]['year']}}</h5>
             <h5>ISBN-10: {{bookInfo[0]['isbn']}}</h5>
+            </center>
         </div>
 
         <!--GOODREADS REVIEWS -->

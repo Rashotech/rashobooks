@@ -148,7 +148,7 @@ def book(isbn):
         bookId = bookId[0]
 
         # Check for user submission (ONLY 1 review/user allowed per book)
-        row2 = db.execute("SELECT * FROM reviewer WHERE id = :id AND book_id = :book_id",
+        row2 = db.execute("SELECT * FROM reviewer WHERE user_id = :id AND book_id = :book_id",
                     {"id": currentUser,
                      "book_id": bookId})
 
@@ -224,3 +224,36 @@ def book(isbn):
         reviews = results.fetchall()
 
         return render_template("book.html", bookInfo=bookInfo, reviews=reviews)
+
+@app.route("/api/<isbn>", methods=['GET'])
+def api_call(isbn):
+
+    # COUNT returns rowcount
+    # SUM returns sum selected cells' values
+    # INNER JOIN associates books with reviews tables
+
+    row = db.execute("SELECT title, author, year, isbn, \
+                    COUNT(reviewer.id) as review_count, \
+                    AVG(reviewer.rating) as average_score \
+                    FROM books \
+                    INNER JOIN reviewer \
+                    ON books.id = reviewer.book_id \
+                    WHERE isbn = :isbn \
+                    GROUP BY title, author, year, isbn",
+                    {"isbn": isbn})
+
+    # Error checking
+    if row.rowcount != 1:
+        return jsonify({"Error": "Invalid book ISBN"}), 422
+
+    # Fetch result from RowProxy    
+    tmp = row.fetchone()
+
+    # Convert to dict
+    result = dict(tmp.items())
+
+    # Round Avg Score to 2 decimal. This returns a string which does not meet the requirement.
+    # https://floating-point-gui.de/languages/python/
+    result['average_score'] = float('%.2f'%(result['average_score']))
+
+    return jsonify(result)

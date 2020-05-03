@@ -31,15 +31,28 @@
     <h1>{% block heading %} {% endblock %} - RAshoBOOKS</h1>
   </header>
   <nav>
+    {% if session.id %}
+    <ul>
+      <a href="/home"><li><i class="fa fa-home"></i> Home</li></a>
+      <a href="#"><li><i class="fa fa-info"></i> {{ session.username }}</li></a>
+      <a href="{{ url_for('logout') }}"><li><i class="fa fa-inbox"></i> Logout</li></a>
+    </ul>
+    {% else %}
     <ul>
       <a href="/"><li><i class="fa fa-home"></i> Home</li></a>
       <a href="/signup"><li><i class="fa fa-info"></i> Sign Up</li></a>
       <a href="/login"><li><i class="fa fa-inbox"></i> Login</li></a>
     </ul>
+    {% endif %}
     <div class="handle">
       Menu
     </div>
   </nav>
+  {% if get_flashed_messages() %}
+        <div class="alert alert-info text-center" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+        </div>
+    {% endif %}
 
   <script>
     $('.handle').on('click', function(){
