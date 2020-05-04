@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Search for books - Rashobooks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
@@ -30,7 +30,7 @@
         </div>
     </nav>
     <main class="page lanidng-page">
-        <section class="portfolio-block block-intro" style="height: 10px;">
+        <section class="portfolio-block block-intro" style="height: 150px;">
             <div class="container">
                 <div class="about-me">
                     <p class="text-center" style="height: 103px;">Welcome back {{ username }}<br>Search for a book by its ISBN, Title Name, and Author Name Below<br><br></p>
@@ -62,8 +62,30 @@
                         <!--end of col-->
                     </div>
                 </div>
+                <div class="container">
+                <h3><center><b>Suggested Books to Read</b></center></h3>
+                <div class="dropdown-divider"></div>
+                <div class="container results-container">
+                {% for book in books %}
+                <div class="card border-primary mb-4" style="width: 15rem">
+                    <div class="card mb-4 border-dark">
+                        <img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book['isbn']}}-M.jpg" alt="Card image cap" width="250" height="200">
+                        <div class="card-body">
+                           <h5 class="card-title">{{book['title']}}</h5>
+                           <p class="card-text">
+                            <h6 class="card-text"><b>Author</b>: {{book['author']}}</h6>
+                            <h6 class="card-text"><b>Year of Publication</b>: {{book['year']}}</h6>
+                            <h6 class="card-text"><b>ISBN</b>: {{book['isbn']}}</h6>
+                           </p>
+                       <a href="/book/{{book['isbn']}}" class="btn btn-dark btn-sm">Go to book page</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}      
+                </div>
+                </div>
     </main>
-    <div class="fixed-bottom">
+
     <footer class="footer-area footer--light"></footer>
     <div class="mini-footer">
         <div class="container">
@@ -80,7 +102,7 @@
         </div>
     </div>
     </footer>
-    </div>
+    
     <script src="{{ url_for('static', filename='home/js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='home/js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>

@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand logo" href="#">Rashobooks</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#">Search Results</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navbarNav">
                 <ul class="nav navbar-nav ml-auto">
@@ -36,7 +36,7 @@
         {% for book in books %}
         <div class="card border-primary mb-3" style="width: 15rem">
             <div class="card mb-3 border-dark">
-                <img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book['isbn']}}-M.jpg" alt="Card image cap">
+                <img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book['isbn']}}-M.jpg" alt="Card image cap" width="250" height="200">
                 <div class="card-body">
                    <h5 class="card-title">{{book['title']}}</h5>
                    <p class="card-text">

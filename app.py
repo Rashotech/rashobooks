@@ -89,12 +89,23 @@ def signup():
 
 @app.route('/home', methods=["GET"])
 def home():
+    rows = db.execute("SELECT * FROM books ORDER BY RANDOM() LIMIT 8")
+    # Fetch all the results
+    books = rows.fetchall()
+    return render_template("home.html", books=books)
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
         return render_template('home.html', username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
+
+@app.route('/suggested')
+def suggested():
+    rows = db.execute("SELECT * FROM books ORDER BY RANDOM() LIMIT 8")
+    # Fetch all the results
+    books = rows.fetchall()
+    return render_template("home.html", books=books)
 
 @app.route("/search", methods=["GET"])
 def search():
