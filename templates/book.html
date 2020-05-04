@@ -3,6 +3,9 @@
 {% block title %}
     {{bookInfo[0]['title']}}
 {% endblock %}
+{% block heading %} 
+{{bookInfo[0]['title']}}
+{% endblock %}
 
 {% block content %}
     <div class="row book-container">
@@ -20,21 +23,24 @@
 
         <!--GOODREADS REVIEWS -->
         <div class="col-sm-4">
+            <center>
             <img class="mb-3" src="../static/goodreads.jpg" alt="Goodreads" width="200" height="45">
             <h5>Nº of Ratings: {{bookInfo[1]['work_ratings_count']}}</h5>
             <h5>Average Rating: {{bookInfo[1]['average_rating']}}</h5>
             <h5>
                 <a href="https://www.goodreads.com/search?q={{bookInfo[0]['title']}}">Goodreads page</a>
             </h5>
+            </center>
         </div>
     </div>
     <div class="dropdown-divider"></div>
-
+    <center>
     <h4 class="alert alert-warning">Users Reviews</h4>
     <h5>Make your own review!</h5>
-
+    </center>
     <div>
         <!-- REVIEW FORM -->
+        <center>
         <form method="POST" class="form-border">
             <div class="form-row">
                 <div class="form-group col-sm">
@@ -60,7 +66,7 @@
                 </div>
             </div>
         </form>
-
+        </center>
         <!-- REVIEW LIST -->
         <div id="userReviews">
             <h2></h2>

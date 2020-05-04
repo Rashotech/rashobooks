@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Search Results - Rashobooks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='home/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -23,50 +24,51 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+        <h3>Search Results</h3>
+    </div>
+    
     <main class="page lanidng-page">
-        <section class="portfolio-block block-intro">
-            <h3>Search Results</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Year</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for book in books %}
-                            <tr>
-                                <th scope="row"><a href="/book/{{book['isbn']}}" class="card-link">{{book['isbn']}}</a></th>
-                                <td>{{book['title']}}</td>
-                                <td>{{book['author']}}</td>
-                                <td>{{book['year']}}</td>
-                            </tr>
-                            </tbody>
-                            {% endfor %}
-                        </table>
-                    </table>
-                </div>
-        </section>
-    </main>
-    <div class="fixed-bottom">
-        <footer class="page-footer font-small special-color-dark pt-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-8 mx-auto">
-                        <ul class="list-unstyled list-inline text-center">
-                            <li class="list-inline-item"><a class="btn-floating btn-fb mx-1" href="http://fb.com/ayoaderasheed"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-tw mx-1" href="http://twitter.com/RA_UniqueGUY"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-ins mx-1" href="http://instagram.com/rauniqueguy"><i class="fab fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a class="btn-floating btn-li mx-1" href="http://instagram.com/rauniqueguy"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul><p class="copyright text-muted text-center">Copyright &copy; RAshotech Inc. | Web Design by Ayoade Rasheed</p></div>
+    <section class="portfolio-block block-intro">
+    <div class="container">
+    <div class="container results-container">
+        
+        {% for book in books %}
+        <div class="card border-primary mb-3" style="width: 15rem">
+            <div class="card mb-3 border-dark">
+                <img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book['isbn']}}-M.jpg" alt="Card image cap">
+                <div class="card-body">
+                   <h5 class="card-title">{{book['title']}}</h5>
+                   <p class="card-text">
+                    <h6 class="card-text"><b>Author</b>: {{book['author']}}</h6>
+                    <h6 class="card-text"><b>Year of Publication</b>: {{book['year']}}</h6>
+                    <h6 class="card-text"><b>ISBN</b>: {{book['isbn']}}</h6>
+                   </p>
+               <a href="/book/{{book['isbn']}}" class="btn btn-dark btn-sm">Go to book page</a>
                 </div>
             </div>
-        </footer>
         </div>
+        {% endfor %}
+    </div>
+    </div>
+    </section>
+    </main>
+  
+    <footer class="footer-area footer--light"></footer>
+    <div class="mini-footer">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="copyright-text">
+                <p>© 2020
+                  <a href="#">Rashobooks</a>. All rights reserved. Created by
+                  <a href="#">Ayoade Rasheed</a>
+                </p>
+               </div>
+            </div>
+        </div> 
+    </div>
+    </footer>
             <script src="{{ url_for('static', filename='home/js/jquery.min.js') }}"></script>
             <script src="{{ url_for('static', filename='home/js/bootstrap.min.js') }}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>

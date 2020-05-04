@@ -18,3 +18,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+#export FLASK_APP=myapp
+#export FLASK_ENV=development
+#flask run

@@ -125,7 +125,7 @@ def search():
     books = rows.fetchall()
 
     return render_template("results.html", books=books)
-
+    
 @app.route("/book/<isbn>", methods=['GET','POST'])
 def book(isbn):
     """ Save user review and load same page with reviews updated."""
